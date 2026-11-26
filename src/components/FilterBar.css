@@ -1,0 +1,229 @@
+/* =========================================================
+   Barra de filtros pegajosa
+   ========================================================= */
+.filterbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  border-block: 1px solid var(--line);
+  background: rgba(7, 10, 15, 0.86);
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+}
+
+.filterbar__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterbar__row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 56px;
+  padding-block: 9px;
+}
+
+.filterbar__row + .filterbar__row {
+  border-top: 1px solid var(--line);
+}
+
+.filterbar__label {
+  flex: none;
+  width: 58px;
+  color: var(--muted-2);
+}
+
+.filterbar__tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* ---------- Chips ---------- */
+.chips {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: none;
+  padding: 6px 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--paper-dim);
+  white-space: nowrap;
+  transition:
+    color var(--dur-fast) linear,
+    border-color var(--dur-fast) linear,
+    background-color var(--dur-fast) linear;
+}
+
+.chip:hover:not(:disabled) {
+  color: var(--paper);
+  border-color: var(--line-strong);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.chip:disabled {
+  opacity: 0.32;
+  cursor: not-allowed;
+}
+
+.chip.is-active {
+  color: var(--ink-950);
+  border-color: var(--chip-accent, var(--paper));
+  background: var(--chip-accent, var(--paper));
+}
+
+.chip__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--chip-accent);
+}
+
+.chip.is-active .chip__dot {
+  background: var(--ink-950);
+}
+
+.chip__count {
+  font-size: 0.625rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.62;
+}
+
+.chip.is-active .chip__count {
+  opacity: 0.75;
+}
+
+/* ---------- Botones de herramienta ---------- */
+.tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  white-space: nowrap;
+  transition:
+    color var(--dur-fast) linear,
+    border-color var(--dur-fast) linear,
+    background-color var(--dur-fast) linear;
+}
+
+.tool:hover {
+  color: var(--paper);
+  border-color: var(--line-strong);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.tool svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tool--reset {
+  color: var(--accent-mobile);
+  border-color: rgba(255, 122, 89, 0.35);
+}
+
+.tool--reset:hover {
+  color: #ffd7cc;
+  border-color: rgba(255, 122, 89, 0.6);
+  background: rgba(255, 122, 89, 0.1);
+}
+
+/* ---------- Eras ---------- */
+.chips--eras {
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+
+.chips--eras::-webkit-scrollbar {
+  display: none;
+}
+
+.chip--era {
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.chip--era.is-active {
+  color: var(--ink-950);
+  border-color: var(--paper);
+  background: var(--paper);
+}
+
+.filterbar__count {
+  flex: none;
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.filterbar__count strong {
+  color: var(--accent-wifi);
+  font-weight: 500;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px) {
+  .filterbar__label {
+    display: none;
+  }
+
+  .filterbar__row {
+    gap: 10px;
+  }
+
+  .chips {
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filterbar__tools span {
+    display: none;
+  }
+
+  .tool {
+    padding: 7px 9px;
+  }
+}
+
+@media (max-width: 560px) {
+  .filterbar__count {
+    display: none;
+  }
+}

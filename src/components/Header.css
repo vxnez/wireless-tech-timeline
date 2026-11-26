@@ -1,0 +1,430 @@
+/* =========================================================
+   Header / portada editorial
+   ========================================================= */
+.hero {
+  position: relative;
+}
+
+/* ---------- Barra superior ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--paper);
+}
+
+.brand__mark {
+  width: 28px;
+  height: 28px;
+  color: var(--accent-wifi);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.brand:hover .brand__mark {
+  transform: rotate(-8deg) scale(1.06);
+}
+
+.brand__name {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.brand__slash {
+  color: var(--muted-2);
+  font-family: var(--font-mono);
+}
+
+.brand__sub {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.topbar__meta {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.topbar__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-wifi);
+  animation: pulse-dot 3s var(--ease-out) infinite;
+}
+
+.topbar__range {
+  color: var(--paper-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Portada ---------- */
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.72fr);
+  align-items: end;
+  gap: clamp(32px, 5vw, 72px);
+  padding-top: clamp(44px, 7vw, 88px);
+  padding-bottom: clamp(36px, 5vw, 64px);
+}
+
+.hero__copy {
+  min-width: 0;
+}
+
+.hero__kicker {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero__rule {
+  width: 34px;
+  height: 1px;
+  background: var(--accent-wifi);
+}
+
+.hero__kicker-sep {
+  color: var(--muted-2);
+}
+
+.hero__kicker-num {
+  color: var(--paper-dim);
+}
+
+.hero__title {
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 7.4vw, 6.1rem);
+  font-weight: 300;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  font-variation-settings: 'SOFT' 0, 'WONK' 1;
+}
+
+.hero__title em {
+  display: inline-block;
+  font-style: italic;
+  background-image: linear-gradient(
+    90deg,
+    rgba(74, 214, 197, 0.85),
+    rgba(74, 214, 197, 0.12) 92%
+  );
+  background-repeat: no-repeat;
+  background-position: 0 94%;
+  background-size: 100% 3px;
+  padding-bottom: 2px;
+}
+
+.hero__lead {
+  max-width: 58ch;
+  margin-top: 26px;
+  color: var(--paper-dim);
+  font-size: clamp(0.95rem, 1.05vw, 1.0625rem);
+  line-height: 1.7;
+}
+
+/* ---------- Buscador ---------- */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 580px;
+  margin-top: 30px;
+  padding: 3px 3px 3px 15px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.028);
+  transition:
+    border-color var(--dur) var(--ease-out),
+    background var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.search:focus-within {
+  border-color: rgba(74, 214, 197, 0.55);
+  background: rgba(74, 214, 197, 0.045);
+  box-shadow: 0 0 0 3px rgba(74, 214, 197, 0.1);
+}
+
+.search__icon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: var(--muted);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.search__input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 0;
+  border: 0;
+  background: none;
+  outline: none;
+  font-size: 0.9375rem;
+  color: var(--paper);
+}
+
+.search__input::placeholder {
+  color: var(--muted-2);
+}
+
+.search__input::-webkit-search-cancel-button,
+.search__input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search__clear {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-xs);
+  color: var(--muted);
+  transition:
+    color var(--dur-fast) linear,
+    background-color var(--dur-fast) linear;
+}
+
+.search__clear:hover {
+  color: var(--paper);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.search__clear svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.search__kbd {
+  margin-right: 9px;
+  padding: 2px 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--muted);
+}
+
+.hero__count {
+  margin-top: 11px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.hero__count-num {
+  color: var(--accent-wifi);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Panel de telemetría ---------- */
+.telemetry {
+  position: relative;
+  padding: 18px 20px 16px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+}
+
+.telemetry::before,
+.telemetry::after {
+  content: '';
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  pointer-events: none;
+}
+
+.telemetry::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid var(--accent-wifi);
+  border-left: 1px solid var(--accent-wifi);
+}
+
+.telemetry::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 1px solid var(--accent-wifi);
+  border-bottom: 1px solid var(--accent-wifi);
+}
+
+.telemetry__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid var(--line);
+}
+
+.telemetry__led {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-wifi);
+  box-shadow: 0 0 12px rgba(74, 214, 197, 0.8);
+}
+
+.telemetry__list {
+  margin: 0;
+}
+
+.telemetry__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.telemetry__row dt {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.telemetry__row dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  font-variant-numeric: tabular-nums;
+}
+
+.telemetry__foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  color: var(--muted-2);
+}
+
+.telemetry__track {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.telemetry__track-dot {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-wifi);
+  transform: translateY(-50%);
+}
+
+/* ---------- Regla de medida inferior ---------- */
+.hero__ruler {
+  height: 20px;
+  border-top: 1px solid var(--line);
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--line-strong) 0 1px,
+    transparent 1px 14px
+  );
+  background-repeat: repeat-x;
+  background-position: top left;
+  background-size: auto 7px;
+  opacity: 0.55;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 940px) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .telemetry {
+    max-width: 460px;
+  }
+}
+
+@media (max-width: 620px) {
+  .topbar {
+    padding-block: 15px;
+  }
+
+  .hero__kicker-sep,
+  .hero__kicker-num {
+    display: none;
+  }
+
+  .brand__sub {
+    display: none;
+  }
+
+  .topbar__range {
+    display: none;
+  }
+
+  .hero__title {
+    letter-spacing: -0.03em;
+  }
+
+  .hero__lead {
+    margin-top: 20px;
+  }
+
+  .search {
+    margin-top: 24px;
+  }
+}
